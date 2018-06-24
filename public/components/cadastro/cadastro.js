@@ -1,21 +1,17 @@
 import React from 'react';
 import Logo from '../../assets/img/nfprod-04.png';
-import LoginForm from './LoginForm.js';
+import CadastroForm from './CadastroForm.js';
 import { StyleSheet, View, Image, KeyboardAvoidingView } from 'react-native';
 
-const login = () => {
+const cadastro = () => {
     return (
       <KeyboardAvoidingView behavior="padding" style={ styles.container }>
-        <Image
-          source={ Logo }
-          resizeMode="contain"
-          style={ styles.logo }/>
-        <LoginForm />
+        <CadastroForm />
       </KeyboardAvoidingView>
     );
 }
 
-export default login;
+export default cadastro;
 
 const styles = StyleSheet.create({
   container: {

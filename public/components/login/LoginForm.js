@@ -15,38 +15,17 @@ class loginForm extends React.Component {
 
   key(obj, val) { for(var chave in obj) { if(obj[chave] === val && obj.hasOwnProperty(chave)) return chave; }}
 
-  updateLoginHandler(login) {
-    this.setState({ ...this.state, login });
-  }
-
-  updatePassHandler(password) {
-    this.setState({ ...this.state, password });
-  }
-
   submitData(data) {
     for(var w in data) {
       if(data[w].length === 0 || '' && this.key(data, data[w] !== 'errors')) {
         const identificador = Object.keys(data).find(i => i === this.key(data, data[w]));
-        return this.setState({
-          ...this.state,
-          errors: {
-            ...this.errors,
-            campoEmBranco: `${identificador} não pode ficar vazio`,
-          }
-        });
+        return this.setState({ errors: { ...this.state.errors, campoEmBranco: `${identificador} não pode ficar vazio` }});
       };
     }
 
     axios.post('https://servidor-nfpro.herokuapp.com/api/usuarios', data)
-    .then(res => res.json())
-    .then(dados => console.warn(dados))
-    .catch(err => this.setState({
-      ...this.state,
-      errors: {
-        ...this.errors,
-        erroConexao: "Erro ao fazer a requisição para o servidor",
-      }
-    }));
+    .then(res => console.warn(res.data))
+    .catch(err => console.log(err));
   }
 
   render() {
@@ -64,8 +43,9 @@ class loginForm extends React.Component {
           underlineColorAndroid='transparent'
           returnKeyType="next"
           onSubmitEditing={() => this.passwordInput.focus()}
+          onChangeText={login => this.setState({ login })}
           keyboardType="email-address"
-          onChangeText={(e) => this.updateLoginHandler(e)}
+          value={this.state.login}
           style={ styles.input }/>
         <Text
           style={ styles.label }>Senha</Text>
@@ -74,8 +54,10 @@ class loginForm extends React.Component {
           placeholderTextColor="rgba(255, 255, 255, 0.4)"
           underlineColorAndroid='transparent'
           returnKeyType="go"
+          value={this.state.password}
           secureTextEntry
-          onChangeText={(e) => this.updatePassHandler(e)}
+          onChangeText={password => this.setState({ password })}
+          onChange={this.onChangeText}
           ref={i => this.passwordInput = i}
           style={ styles.input }/>
         <Button
@@ -86,8 +68,10 @@ class loginForm extends React.Component {
           onPress={() => this.submitData(this.state)}/>
         <View
           style={ styles.subTitles }>
-          <Text style={ styles.subTitle }>Faça seu cadastro</Text>
-          <Text style={ styles.subTitle }>Esqueceu a sua senha?</Text>
+          <TouchableOpacity>
+            <Text style={ styles.subTitle }>Faça seu cadastro</Text>
+            <Text style={ styles.subTitle }>Esqueceu a sua senha?</Text>
+          </TouchableOpacity>
         </View>
       </View>
     )
