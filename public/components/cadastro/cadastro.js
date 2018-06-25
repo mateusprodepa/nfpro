@@ -1,7 +1,6 @@
 import React from 'react';
-import Logo from '../../assets/img/nfprod-04.png';
-import CadastroForm from './CadastroForm.js';
-import { StyleSheet, View, Image, KeyboardAvoidingView } from 'react-native';
+import CadastroForm from './CadastroForm';
+import { StyleSheet, KeyboardAvoidingView } from 'react-native';
 
 const cadastro = () => {
     return (
@@ -19,11 +18,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#f7f1e3',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  logo: {
-    width: '40%',
-    height: 140,
-    marginTop: 80,
-    marginBottom: 20,
-  },
+  }
 });
