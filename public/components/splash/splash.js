@@ -12,16 +12,28 @@ export default ({ navigation }) => {
         style={ styles.logo
          }/>
 
-       <Button
-         title="Logue na sua conta"
-         raised={true}
-         color="#ffa502"
-         onPress={() => onSignIn().then(() => navigation.navigate("Login"))}/>
-       <Button
-         title="Faça seu cadastro"
-         raised={true}
-         color="#ffa502"
-         onPress={() => onSignIn().then(() => navigation.navigate("Cadastro"))}/>
+       <View style={{
+           margin: 5,
+           padding: 8,
+           width: '65%'
+         }}>
+         <Button
+           title="Logue na sua conta"
+           raised={true}
+           color="#ff793f"
+           onPress={() => onSignIn().then(() => navigation.navigate("Login"))}/>
+       </View>
+       <View style={{
+           margin: 5,
+           padding: 8,
+           width: '65%'
+         }}>
+         <Button
+           title="Faça seu cadastro"
+           raised={true}
+           color="#ff793f"
+           onPress={() => onSignIn().then(() => navigation.navigate("Cadastro"))}/>
+       </View>
     </View>
   )
 }

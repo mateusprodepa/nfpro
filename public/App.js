@@ -9,6 +9,12 @@ export default class App extends React.Component {
     checkedSignIn: true,
   }
 
+  componentDidMount() {
+    isSignedIn()
+      .then(res => this.state({ signedIn: res, checkedSignIn: true }))
+      .catch(() => console.log("Ocorreu um erro"));
+  }
+
   render() {
     const { checkedSignIn, signedIn } = this.state;
 
