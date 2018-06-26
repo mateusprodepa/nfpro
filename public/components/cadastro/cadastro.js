@@ -2,15 +2,14 @@ import React from 'react';
 import CadastroForm from './CadastroForm';
 import { StyleSheet, KeyboardAvoidingView } from 'react-native';
 
-const cadastro = () => {
+export default ({ navigation }) => {
     return (
       <KeyboardAvoidingView behavior="padding" style={ styles.container }>
-        <CadastroForm />
+        <CadastroForm
+          nav={ navigation }/>
       </KeyboardAvoidingView>
     );
 }
-
-export default cadastro;
 
 const styles = StyleSheet.create({
   container: {

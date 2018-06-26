@@ -3,19 +3,18 @@ import Logo from '../../assets/img/nfprod-04.png';
 import LoginForm from './LoginForm.js';
 import { StyleSheet, View, Image, KeyboardAvoidingView } from 'react-native';
 
-const login = () => {
+export default ({ navigation }) => {
     return (
       <KeyboardAvoidingView behavior="padding" style={ styles.container }>
         <Image
           source={ Logo }
           resizeMode="contain"
           style={ styles.logo }/>
-        <LoginForm />
+        <LoginForm
+          nav={ navigation }/>
       </KeyboardAvoidingView>
     );
 }
-
-export default login;
 
 const styles = StyleSheet.create({
   container: {

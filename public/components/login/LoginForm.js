@@ -23,7 +23,7 @@ class loginForm extends React.Component {
       };
     }
 
-    axios.post('https://servidor-nfpro.herokuapp.com/api/usuarios', data)
+    axios.post('http://watcher-college.umbler.net/api/login', data)
     .then(res => console.warn(res.data))
     .catch(err => console.log(err));
   }
@@ -70,6 +70,8 @@ class loginForm extends React.Component {
           style={ styles.subTitles }>
           <TouchableOpacity>
             <Text style={ styles.subTitle }>Faça seu cadastro</Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
             <Text style={ styles.subTitle }>Esqueceu a sua senha?</Text>
           </TouchableOpacity>
         </View>

@@ -1,8 +1,9 @@
 import React from 'react';
 import Logo from '../../assets/img/nfprod-04.png';
-import { View, Image, Button } from 'react-native';
+import { View, Image, Button, StyleSheet } from 'react-native';
+import { onSignIn } from '../../auth';
 
-const splash = () => {
+export default ({ navigation }) => {
   return (
     <View style={ styles.container }>
       <Image
@@ -11,13 +12,19 @@ const splash = () => {
         style={ styles.logo
          }/>
 
-      <Button />
-      <Button />
+       <Button
+         title="Logue na sua conta"
+         raised={true}
+         color="#ffa502"
+         onPress={() => onSignIn().then(() => navigation.navigate("Login"))}/>
+       <Button
+         title="Faça seu cadastro"
+         raised={true}
+         color="#ffa502"
+         onPress={() => onSignIn().then(() => navigation.navigate("Cadastro"))}/>
     </View>
   )
 }
-
-export default splash;
 
 const styles = StyleSheet.create({
   container: {

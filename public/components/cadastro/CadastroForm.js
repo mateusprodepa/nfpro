@@ -28,9 +28,9 @@ class cadastroForm extends React.Component {
       };
     }
 
-    axios.post('https://servidor-nfpro.herokuapp.com/api/auth', data)
+    axios.post('http://watcher-college.umbler.net/api/auth', data)
     .then(res => console.warn(res.data))
-    .catch(err => console.log(err));
+    .catch(err => console.warn(err));
   }
 
   render() {
